@@ -12,6 +12,9 @@
         .titleStyle{
             color: aqua;
         }
+        button:hover{
+            background-color: bisque;
+        }
     </style>
 </head>
 <body>
@@ -20,6 +23,16 @@
         <button type="button" class="buttonEvent">Ajouter</button>
         <button type="button" class="buttonEvent">Suprimer</button>
         <button type="button" class="buttonEvent">Toggle</button>
+        <form action="" method="post" id="formSpy">
+            <div style="display: flex; flex-direction: column;">
+                <label for="spy">On test d'espioner le clavier :</label>
+                <input type="text" name="" id="spy" placeholder="Ecrire ici">
+            </div>
+            <div id="rendu">
+                <p>Rendu : Ci dessous</p>
+            </div>
+            <button type="submit">Envoyer</button>
+        </form>
     </main>
 </body>
 </html>

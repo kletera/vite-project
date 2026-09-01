@@ -19,18 +19,70 @@ buttonAll[2].addEventListener("click", (event) => {
 buttonAll[0].style.color="blue";
 buttonAll[1].style.color="purple";
 buttonAll[2].style.color="#b5b52b";
-// buttonAll.style.border="none";none;
-
+buttonAll[2].style.backgroundColor="white"
+for(let i=0; i<buttonAll.length;i++){
+    buttonAll[i].style.border="none";
+    buttonAll[i].style.padding="10px"
+    buttonAll[i].style.borderRadius="5px";
+}
 const body=document.querySelector("body");
 console.log(body);
 const pMillion=document.createElement("p");
 pMillion.textContent="Tu a gagnier 1 million";
+pMillion.style.backgroundColor="green";
+pMillion.style.textAlign="center";
+pMillion.style.color="red";
 console.log(pMillion);
-body.append(pMillion);
+body.prepend(pMillion);
 body.addEventListener("mouseleave",(e)=>{
     pMillion.classList.remove("display");
 })
 body.addEventListener("mouseenter",(e)=>{
     pMillion.classList.add("display");
 })
+let mouseEvent={
+    x : 0,
+    y : 0,
+}
+
+body.addEventListener("mousemove",(e)=>{
+    mouseEvent.x=e.x;
+    mouseEvent.y=e.y;
+    console.log(mouseEvent);
+});
+
+const inputKey=document.querySelector("input");
+const resultKey=document.querySelector("#rendu");
+console.log(inputKey);
+console.log(resultKey);
+const pResultKey=document.createElement('p');
+pResultKey.style.backgroundColor="#fbff91";
+resultKey.append(pResultKey);
+console.log(pResultKey);
+
+const buttonEnvoyer=document.querySelector(`button[type="submit"]`);
+buttonEnvoyer.style.color="blue"
+buttonEnvoyer.style.border="none";
+buttonEnvoyer.style.padding="10px"
+buttonEnvoyer.style.borderRadius="5px";
+console.log(buttonEnvoyer);
+
+localStorage.setItem("myText","Smith");
+inputKey.value=localStorage.myText;
+pResultKey.innerText=inputKey.value;
+
+inputKey.addEventListener("keyup",(e)=>{
+    e.preventDefault();
+    pResultKey.innerText=inputKey.value;
+    buttonEnvoyer.disabled=inputKey.value.length>5 ? true : false;
+    localStorage.setItem("myText",inputKey.value);
+})
+console.log(inputKey.value.length);
+
+// const formSpy=document.getElementById('#formSpy');
+// formSpy.addEventListener("submit",(e)=>{
+//     e.preventDefault();
+//     localStorage.setItem("myText", pResultKey.value)
+// })
+
 
