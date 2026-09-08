@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../services/header.js" defer></script>
+    <script src="./exRegex.js" defer></script>
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        #styleConnect{
+            display: flex;
+            gap: 10px;
+            width: fit-content;
+            margin: auto;
+        }
+        #formConnect{
+            width: 400px;
+            border: 1px solid;
+            text-align: center;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #formConnect div{
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        #formConnect input{
+            border: 0.5px solid;
+            border-radius: 5px;
+            padding: 2px 5px;
+        }
+        .flexMessage{
+            display: none;
+        }
+        #formConnect button{
+            color: white;
+            background-color: blue;
+            border-radius: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Exercice Regex</h1>
+        <div id="styleConnect">
+            <form action="" method="get" id="formConnect">
+                <h2>Connexion</h2>
+                <p>Connectez-vous pour accéder aux exercices</p>
+                <div>
+                    <label for="identifiant">Identifiant</label>
+                    <input type="email" name="" id="identifiant" placeholder="Saisiser votre email">
+                    <label for="pw">Mot de passe</label>
+                    <input type="password" name="" id="pw" placeholder="Saisiser vot Mot de passe">
+                </div>
+                <button type="submit">Se connecter</button>
+            </form>
+
+        </div>
+
+    </main>
+</body>
+</html>
