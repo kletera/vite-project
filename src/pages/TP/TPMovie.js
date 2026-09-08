@@ -45,34 +45,48 @@ function renderMovies(){
     console.log(jsonMovie.length);
 
     // Boucle construction html
+    const article=document.createElement('div');
+    article.classList.add('flex', 'gap-4','flex-wrap');
+    document.body.appendChild(article);
     for(let i=0;i<jsonMovie.length ;i++){
+
         const divMv=document.createElement('div');
-        document.body.appendChild(divMv);
+        divMv.classList.add("card", "bg-base-100", "w-96", "shadow-sm");
+       article.appendChild(divMv);
+
+        const card=document.createElement('div');
+        card.classList.add('card-body','items-center', 'text-center', 'gap-4');
+        divMv.appendChild(card);
     
         const titleMv=document.createElement('h2');
         titleMv.innerText=jsonMovie[i].title;
-        divMv.appendChild(titleMv);
+        card.appendChild(titleMv);
 
         const voteMv=document.createElement('span');
         voteMv.innerText=`${jsonMovie[i].vote} votes`;
-         divMv.appendChild(voteMv);
+        card.appendChild(voteMv);
 
         const btVorteMV=document.createElement('button');
         btVorteMV.innerText='Vote';
         btVorteMV.value=jsonMovie[i].id;
-        
-        divMv.appendChild(btVorteMV);
+        btVorteMV.classList.add("btn", "btn-primary");
+        card.appendChild(btVorteMV);
 
-        btVorteMV.addEventListener('click', () => {
-            const current = JSON.parse(localStorage.getItem("movie_vote"));
-            const result = current.find(n => n.id === jsonMovie[i].id);
-            result.vote += 1;
-            localStorage.setItem("movie_vote", JSON.stringify(current));
-            voteMv.innerText = `${result.vote} votes`; 
-        });
-
+        vote(btVorteMV, voteMv);
     }
     
+}
+
+function vote(btVorteMV, voteMv){
+    console.log(btVorteMV.value);
+    btVorteMV.addEventListener('click', () => {
+        const current = JSON.parse(localStorage.getItem("movie_vote"));
+        const result = current.find(n => n.id === JSON.parse(btVorteMV.value));
+        result.vote += 1;
+        localStorage.setItem("movie_vote", JSON.stringify(current));
+        voteMv.innerText = `${result.vote} votes`; 
+    });
+
 }
 renderMovies();
 
