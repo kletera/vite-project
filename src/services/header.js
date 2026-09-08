@@ -1,4 +1,4 @@
-function headerFunction(){
+export function headerFunction(){
     const header=document.createElement('header');
     header.innerHTML=
     `<div class="navbar bg-base-100 shadow-sm">
@@ -7,12 +7,12 @@ function headerFunction(){
         </div>
         <div class="flex-none">
             <ul class="menu menu-horizontal px-1">
-            <li><a href="http://localhost:5173/">Home</a></li>
-            <li><a href="http://localhost:5173/src/pages/exercices/exercice.html">Exercice 1</a></li>
+                <li><a href="http://localhost:5173/">Home</a></li>
+                <li><a href="http://localhost:5173/src/pages/TP/TP.html">TP</a></li>
+                <li><a href="http://localhost:5173/src/pages/exercices/exercice.html">Exercice</a></li>
             </ul>
         </div>
     </div>`;
     const bodyPage=document.querySelector('body');
     bodyPage.prepend(header);
 }
-headerFunction();

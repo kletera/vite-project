@@ -3,6 +3,7 @@ const cardUser=document.querySelector('#cardUser');
 const imgUser=document.querySelector('#imgUser');
 const btuser=document.querySelector('button');
 const nameUser=document.createElement('h2');
+nameUser.classList.add('card-title','text-2xl');
 const emailUser=document.createElement('p');
 const adresseUser=document.createElement('p');
 const phoneUser=document.createElement('p');
